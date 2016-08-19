@@ -78,6 +78,7 @@ int main(){
   float minore = 0; // smallest
   float std_dev = 0;
   float var_numerator = 0;
+  float store[37];
 
 
   std::string contents;
@@ -87,11 +88,18 @@ int main(){
 
 
     float number;
+    int i = 0;
 
     while (std::getline(myfile,contents)){
 
       std::stringstream convert(contents);
       convert >> number;
+
+
+      store[i] = number;
+      i += 1;
+
+      // store [i] = number;
 
       if (number < 0){ // looks for negative numbers
         negative_values += 1;
@@ -109,88 +117,31 @@ int main(){
       total += number;
       N += 1;
 
-      mean = total/N;
-
-      var_numerator += pow(mean-number,2);
-      std::cout << mean << std::endl;
-      std_dev = sqrt(var_numerator/N);
-
-      // std::cout << "std" << std_dev << std::endl; // do not un-coment this for now
     }
 
-    // float number;
+    mean = total/N;
 
-    // if (total == 0){
-    //
-    //   float number;
-    //
-    //   while (std::getline(myfile,contents)){
-    //
-    //     std::stringstream convert(contents);
-    //     convert >> number;
-    //     // std::cout << contents << std::endl;
-    //     if (number < 0){
-    //       negative_values += 1;
-    //     }
-    //     // float number = atoi(contents.c_str())
-    //
-    //     total += number;
-    //     N += 1;
-    //   }
-    //
-    //   mean = total/N;
-    // }
-    //
-    //
-    // else if(total > 0){
-    //
-    //   float number;
-    //
-    //   while (std::getline(myfile,contents)){
-    //
-    //     std::cout << contents << std::endl;
-    //     std::stringstream convert(contents);
-    //     convert >> number;
-    //
-    //     var_numerator += pow(number - mean,2);
-    //
-    //   }
-    //
-    // }
-    //
-    // std_dev = sqrt(var_numerator/N);
+    for (int j = 0; j<N; j++){
+
+        var_numerator += pow(mean-store[j],2);
+
+    }
+
+    std_dev = sqrt(var_numerator/N);
 
     myfile.close();
 
-
     }
 
-  // else{
-  //
-  //   while (std::getline(myfile,contents)){
-  //
-  //     std::cout << contents << std::endl;
-  //     std::stringstream convert(contents);
-  //     convert >> number;
-  //
-  //     var_numerator += pow(number - mean,2);
-  //
-  //   }
-  //   myfile.close();
-  // }
+  std::cout << "4di) Sum = " << total << std::endl;
 
+  std::cout << "\n4dii) Mean =  " << mean << "\t Standard deviation is = " << std_dev <<std::endl;
 
-  std::cout << "variance " << var_numerator/N << std::endl;
+  // std::cout << "\nVariance = " << var_numerator/N << std::endl;
 
-  std::cout << "Sum = " << total << std::endl;
+  std::cout << "\n4diii) Number of negative values are = " << negative_values << std::endl;
 
-  std::cout << "\nMean =  " << mean << std::endl;
-
-  std::cout << "\nStandard deviation is = " << std_dev << std::endl;
-
-  std::cout << "\nNumber of negative values are = " << negative_values << std::endl;
-
-  std::cout << "\nLargest value = " << maggiore << "\n \nSmallest value = " << minore << std::endl;
+  std::cout << "\n4div) Largest value = " << maggiore << "\tSmallest value = " << minore << std::endl;
 
 
 }
