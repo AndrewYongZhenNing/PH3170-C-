@@ -9,63 +9,74 @@
 int main(){
   // QUESTION 3
   // QUESTION 4a
-  int x = 1;
-  int for_sum = 0;
-  int while_sum = 0;
 
-  for(int x = 1; x <101; x++){
-    for_sum += x;
-  }
-  // repeat:
-
-
-  while(x <101){
-    while_sum += x;
-    x += 1;
-  }
-  std::cout << "The sum from 1 to 100 is: " << while_sum << std::endl;
+  // int x = 1;
+  // int for_sum = 0;
+  // int while_sum = 0;
+  //
+  // for(int x = 1; x <101; x++){
+  //   for_sum += x;
+  // }
+  // // repeat:
+  //
+  //
+  // while(x <101){
+  //   while_sum += x;
+  //   x += 1;
+  // }
+  // std::cout << "The sum from 1 to 100 is: " << while_sum << std::endl;
 
   // QUESTION 4b - generalising for-while loops
   int n1 = 0;
+
   int n2 = 0;
-  int loop_selection = 0;
+  std::string loop_selection;
 
-  std::cout << "Enter value for n1: ";
-  std::cin >> n1;
-  std::cout << "\nEnter value for n2: ";
-  std::cin>> n2;                          // if n1 > n2, sum goes 0
+  start:
 
-  if(n1>n2){
-    std::cout << "n1 is greater than n2, please select the values such that n1 is less than n2" << std::endl;
-    // break;
-  }
-
-  std::cout << "For for loops, enter 1, for while loops, enter 2: " << std::endl;
-  std::cin >> loop_selection;
+    std::cout << "Enter value for n1: ";
+    std::cin >> n1;
+    std::cout << "\nEnter value for n2: ";
+    std::cin>> n2;                          // if n1 > n2, sum goes 0
 
 
-  int gen_for_sum = 0;
-  int gen_while_sum = 0;
-
-  if(loop_selection == 1){
-    for(n1; n1<n2; n1+= 1){
-      gen_for_sum += n1;
+    if(n1>n2){
+      std::cout << "n1 is greater than n2, please select the values such that n1 is less than n2" << std::endl;
+      goto start; // jumps back to start of condition again
     }
-    std::cout << " SUM = " << gen_for_sum << std::endl;
-  }
 
-  else if(loop_selection == 2){
-    while(n1<n2){
+    loop_type:
 
-      gen_while_sum += n1;
-      n1 +=1;
-    }
-    std::cout << " SUM = " << gen_while_sum << std::endl;
-  }
+      std::cout << "Select the type of loops: for or while?" << std::endl;
+      std::cin >> loop_selection;
+      // std::getline(std::cin, loop_selection);
 
-  else{
-    std::cout << "Invalid selection number, please try again \n";
-  }
+
+      int gen_for_sum = 0;
+      int gen_while_sum = 0;
+
+      if(loop_selection == "for"){
+        for(n1; n1<n2; n1+= 1){
+          gen_for_sum += n1;
+        }
+        std::cout << " SUM = " << gen_for_sum << std::endl;
+      }
+
+      else if(loop_selection == "while"){
+        while(n1<n2){
+
+          gen_while_sum += n1;
+          n1 +=1;
+        }
+        std::cout << "SUM = " << gen_while_sum << std::endl;
+      }
+
+      else{
+        std::cout << "Invalid type of loop, please enter either 'for' or 'while' \n";
+        goto loop_type;
+      }
+
+
 
 
   // QUESTION 4d
