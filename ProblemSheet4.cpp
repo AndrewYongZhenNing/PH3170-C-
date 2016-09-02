@@ -1,6 +1,6 @@
 #include <iostream>
-// #include "PS4.h"
-// #include "PS4f.cpp"
+#include "PS4.h"
+#include "PS4f.cpp"
 
 int main(){
 
@@ -54,21 +54,56 @@ int main(){
     }
   }
 
-  for(int i = 0; i <3; i++){
-    for (int j =0; j < 3; j++){
+  // for(int i = 0; i <3; i++){
+  //   for (int j =0; j < 3; j++){
+  //
+  //       // std::cout << identity[i][j] << std::endl;
+  //
+  //     if (j==2){
+  //       std::cout << "\n" << std::endl;
+  //
+  //     }
+  //   }
+  // }
 
-        // std::cout << identity[i][j] << std::endl;
+  // QUESTION 4 - Bubble Sort
 
-      if (j==2){
-        std::cout << "\n" << std::endl;
+  int sequence[24] = {1,5,17,3,75,4,4,23,5,12,34,34,805,345,435,234,6,47,4,9,0,56,32,78};
+  int sequence_size = sizeof(sequence)/sizeof(int);
+  bool sorted = false;
+  int sort = 0;
 
-      }
+  for(int j = 0; j < sequence_size; j++){
+
+    std::cout << "before j = " << j << "\t" << sequence[j] << std::endl;
+
+  }
+  start:
+  for (int i = 0; i < sequence_size; i++){
+
+    if(sequence[i] > sequence[i+1]){
+      swap(sequence[i],sequence[i+1]);
+      goto start;
+
+    }
+
+
+    else{
+      sorted = true;
     }
   }
-  // int test = M[0][0]*t_cofactor[0][0]*1./determinant+ M[0][1]*t_cofactor[1][0]*1./determinant + M[0][2]*t_cofactor[2][0]*1./determinant;
-  //
-  // std::cout << test << std::endl;
-  // std::cout << "1st term:"<<identity[0][0] << std::endl;
 
 
+  if(sorted == true){
+
+    std::cout << "The sequence has been sorted. Here are the results:\n" << std::endl;
+
+    for(int j = 0; j < sequence_size; j++){
+
+      std::cout << "after j = " << j << "\t" << sequence[j] << std::endl;
+
+    }
+
+
+}
 }
