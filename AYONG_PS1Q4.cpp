@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include "PS1f.h" // header file includes functions on horizontal distance and vertical height
+#include "AYONG_PS1Q4.h" // header file includes functions on horizontal distance and vertical height
 
 int main(){
 
