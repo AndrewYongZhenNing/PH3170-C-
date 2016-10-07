@@ -25,52 +25,170 @@ int main(){
 
   switch(target_month){ //switch statement brings program to first of user input month (target_month)
     case 1:
-      actual_day = 0;
-      break;
+      if (target_date <0 or target_date > 31){
+        std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+        goto start_input;
+      }
+      else{
+        actual_day = 0;
+        break;
+      }
+
 
     case 2: // February 2000, a leap month, hence 29
-      actual_day = 31  ;
-      break;
+      if(target_year%4 != 0){ //not a leap year
+        if (target_date <0 or target_date > 28){
+          std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+          goto start_input;
+        }
+        else{
+          actual_day = 31  ;
+          break;
+        }
+
+      }
+
+      else if(target_year%4 == 0){
+        if (target_year%100 ==0 and target_year%400 !=0){ // not a leap year
+
+          if (target_date <0 or target_date > 28){
+            std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+            goto start_input;
+          }
+
+          else{
+            actual_day = 31  ;
+            break;
+          }
+
+        }
+
+        else{ // definitely a leap year
+
+          if (target_date <0 or target_date > 29){
+            std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+            goto start_input;
+          }
+
+          else{
+            actual_day = 31  ;
+            break;
+          }
+
+        }
+      }
+      // actual_day = 31  ;
+      // break;
 
     case 3:
+
+    if (target_date <0 or target_date > 31){
+      std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+      goto start_input;
+    }
+
+    else{
       actual_day = 31 + 29;
       break;
+    }
+
 
     case 4:
-      actual_day = 31 + 29 + 31;
-      break;
+      if (target_date <0 or target_date > 30){
+        std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+        goto start_input;
+      }
+      else{
+        actual_day = 31 + 29 + 31;
+        break;
+      }
+
 
     case 5:
-      actual_day = 31 + 29 + 31 + 30;
-      break;
+      if (target_date <0 or target_date > 31){
+        std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+        goto start_input;
+      }
+
+      else{
+        actual_day = 31 + 29 + 31 + 30;
+        break;
+      }
+
 
     case 6:
-      actual_day = 31 + 29 + 31 + 30 + 31;
-      break;
+      if (target_date <0 or target_date > 30){
+        std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+        goto start_input;
+      }
+      else{
+        actual_day = 31 + 29 + 31 + 30 + 31;
+        break;
+      }
 
     case 7:
-      actual_day = 31 + 29 + 31 + 30 + 31 + 30;
-      break;
+      if (target_date <0 or target_date > 31){
+        std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+        goto start_input;
+      }
+      else{
+        actual_day = 31 + 29 + 31 + 30 + 31 + 30;
+        break;
+      }
 
     case 8:
-      actual_day = 31 + 29 + 31 + 30 + 31 + 30 + 31;
-      break;
+      if (target_date <0 or target_date > 31){
+        std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+        goto start_input;
+      }
+      else{
+        actual_day = 31 + 29 + 31 + 30 + 31 + 30 + 31;
+        break;
+      }
+
 
     case 9:
-      actual_day = 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31;
-      break;
+      if (target_date <0 or target_date > 30){
+        std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+        goto start_input;
+      }
+      else{
+        actual_day = 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31;
+        break;
+      }
+
 
     case 10:
-      actual_day = 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30;
-      break;
+      if (target_date <0 or target_date > 31){
+        std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+        goto start_input;
+      }
+      else{
+        actual_day = 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30;
+        break;
+      }
+
 
     case 11:
-      actual_day = 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31;
-      break;
+      if (target_date <0 or target_date > 30){
+        std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+        goto start_input;
+      }
+      else{
+        actual_day = 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31;
+        break;
+      }
 
     case 12:
-      actual_day = 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30;
-      break;
+      if (target_date <0 or target_date > 31){
+        std::cout << "Error: Input date is outside of the range of the month." << std::endl;
+        goto start_input;
+      }
+      else{
+        actual_day = 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30;
+        break;
+      }
+
 
   }
 
