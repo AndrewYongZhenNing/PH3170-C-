@@ -37,6 +37,9 @@ int main(){
 	v4.add(v3);
 	v4.print();
 
+	std::cout << "\nThe magnitude of v5 is: " << std::endl;
+	double magnitude = v5.get_magnitude();
+	std::cout << magnitude << std::endl;
 
 	v1.rotate(pi);
 	v1.print();
